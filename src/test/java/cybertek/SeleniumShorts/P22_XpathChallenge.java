@@ -5,8 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class P22_XpathChallenge {
+
     public static void main(String[] args) {
 
         WebDriverManager.chromedriver().setup();
@@ -51,51 +53,12 @@ public class P22_XpathChallenge {
         WebElement submit = driver.findElement(By.xpath("//button[@type='submit']"));
         submit.click();
 
+        WebElement success = driver.findElement(By.xpath("//h4[@class='alert-heading' and text()='Well done!']"));
+
+        System.out.println("Message Displayed = " + success.isDisplayed());
+
+        driver.quit();
 
 
-
-        /*
-
-
-
-
-
-
-
-
-
-
-
-        // select[name='job_title']
-        // select[name='job_title'][class='form-control selectpicker']
-        //select.selectpicker[name=='job_title']
-
-         //WebElement jobTitle = driver.findElement(By.cssSelector("select[name='job_title']"));
-        // Select jobTitleSelect = new Select(jobTitle);
-        // jobTitleSelect.selectByIndex(3);
-
-
-        WebElement manager = driver.findElement(By.cssSelector("#registrationForm > div:nth-child(10) > div > select > option:nth-child(3)"));
-        manager.click();
-
-        //inlineCheckbox2
-        //input#inlineCheckbox2
-        //input[type='checkbox'][value='java']
-
-        WebElement java = driver.findElement(By.cssSelector("input#inlineCheckbox3"));
-        java.click();
-
-        //#wooden_spoon
-        //button.btn.btn-primary
-        //button[class='btn-primary']
-        //button.btn.btn=primary[type='submit']
-
-        WebElement submit = driver.findElement(By.cssSelector("button[type='submit']"));
-        submit.click();
-
-
-
-        //button[type='submit']
-        */
     }
 }
