@@ -45,4 +45,41 @@ public class P27_iFrameTest extends TestBase {
         Assert.assertTrue(headerText.isDisplayed());
 
     }
+
+    @Test
+
+    public void test_Nested_iFrame(){
+
+        driver.get("https://practice.cydeo.com/nested_frames");
+
+        //get the text from the bottom
+        driver.switchTo().frame("frame-bottom");
+
+        WebElement bottomFrameBodyElm = driver.findElement(By.tagName("body"));
+
+        System.out.println("bottomFrameBodyElm = " + bottomFrameBodyElm.getText());
+
+        //switc out the parent frame
+
+        //driver.switchTo().parentFrame();
+        driver.switchTo().defaultContent();
+
+        //go to middle frame and get the text
+        //first go to top frame then go to middle frame
+
+        driver.switchTo().frame("frame-top");
+        driver.switchTo().frame("frame-middle");
+        WebElement middleFrameDiv = driver.findElement(By.id("content"));
+        System.out.println("middleFrameDiv.getText() = " + middleFrameDiv.getText());
+
+        driver.switchTo().parentFrame();
+        driver.switchTo().frame("frame-right");
+        WebElement rightFrameBodyElm = driver.findElement(By.tagName("body"));
+        System.out.println("rightFrameBodyElm.getText() = " + rightFrameBodyElm.getText());
+
+        driver.switchTo().defaultContent();
+
+
+
+    }
 }
