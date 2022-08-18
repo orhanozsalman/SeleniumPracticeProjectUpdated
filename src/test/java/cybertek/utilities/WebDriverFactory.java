@@ -21,28 +21,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
 
-    public static WebDriver get(String browserName){
+    public static WebDriver getDriver(String browserType){
 
-        WebDriver driver ;
+        if (browserType.equalsIgnoreCase("chrome")){
 
-        switch (browserName.toLowerCase() ){
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
 
-            case "chrome" :
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-                break;
-            case "firefox" :
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
-            default:
-                System.out.println("UNKNOWN BROWSER TYPE " + browserName);
-                driver = null ;
+        }else if (browserType.equalsIgnoreCase("firefox")){
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+        }else{
+            System.out.println("Given browser type does not exist/or is not currently supported");
+            System.out.println("Driver = null");
+            return null;
         }
 
-        driver.manage().window().maximize();
 
-        return driver ;
     }
 
 }

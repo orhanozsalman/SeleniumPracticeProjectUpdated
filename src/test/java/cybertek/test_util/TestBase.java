@@ -1,38 +1,33 @@
 package cybertek.test_util;
 
-import cybertek.utilities.WebDriverFactory2;
+import cybertek.utilities.Driver;
+import cybertek.utilities.WebDriverFactory;
+import org.junit.Before;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
-public class TestBase {
+import java.util.concurrent.TimeUnit;
 
-    public WebDriver driver;
+public abstract class TestBase {
 
-    @BeforeAll
-    public static void initBrowserDriver() {
-        System.out.println("@BeforeAll runs only once before all test");
-    }
+    protected WebDriver driver;
 
-    @AfterAll
-    public static void teardown(){
-        System.out.println("@AfterAll runs only once after all test");
-    }
-
-
-    @BeforeEach
-    public void setUpBrowser(){
-
-        driver =  WebDriverFactory2.get("chrome");
+    @BeforeMethod
+    public void setupMethod(){
+        driver = WebDriverFactory.getDriver("chrome");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }
 
-    @AfterEach
-    public void ForgetPass() {
-        driver.quit();
-
+    @AfterMethod
+    public void tearDown(){
+        driver.close();
     }
 
 }
