@@ -1,18 +1,17 @@
 package cybertek.tests;
 
 import cybertek.test_util.TestBase;
-<<<<<<< HEAD
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-=======
 import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
->>>>>>> origin/master
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -60,17 +59,15 @@ public class P30_ActionClassTest  extends TestBase {
 
         Actions actions = new Actions(driver);
 
-        //actions.dragAndDrop(smallCircle,bigCircle).perform();  ==> bunun yerine asagidaki gibi de yapilabilir
+        actions.dragAndDrop(smallCircle,bigCircle).perform(); // ==> bunun yerine asagidaki gibi de yapilabilir
 
-        actions.moveToElement(smallCircle).pause(1000)
-                .clickAndHold().pause(1000)
-                .moveToElement(bigCircle).pause(1000)
-                .release()
-                .perform();
+        //actions.moveToElement(smallCircle).pause(1000)
+        //        .clickAndHold().pause(1000)
+        //        .moveToElement(bigCircle).pause(1000)
+        //        .release()
+        //        .perform();
 
         System.out.println("bigCircle.getText() = " + bigCircle.getText());
-
-
 
         assertEquals("You did great!", bigCircle.getText());
 
@@ -78,7 +75,7 @@ public class P30_ActionClassTest  extends TestBase {
 
     }
 
-<<<<<<< HEAD
+
     @Test
     public void testKeyboardActions(){
 
@@ -153,6 +150,5 @@ public class P30_ActionClassTest  extends TestBase {
         assertTrue(resultELm.isDisplayed());
     }
 
-=======
->>>>>>> origin/master
+
 }
