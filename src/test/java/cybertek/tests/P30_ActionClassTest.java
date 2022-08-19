@@ -1,10 +1,15 @@
 package cybertek.tests;
 
 import cybertek.test_util.TestBase;
+<<<<<<< HEAD
 import io.cucumber.java.bs.A;
 import io.cucumber.java.en_old.Ac;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+=======
+import io.cucumber.java.en_old.Ac;
+import org.openqa.selenium.By;
+>>>>>>> origin/master
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
@@ -73,6 +78,7 @@ public class P30_ActionClassTest  extends TestBase {
 
     }
 
+<<<<<<< HEAD
     @Test
     public void testKeyboardActions(){
 
@@ -147,4 +153,6 @@ public class P30_ActionClassTest  extends TestBase {
         assertTrue(resultELm.isDisplayed());
     }
 
+=======
+>>>>>>> origin/master
 }
