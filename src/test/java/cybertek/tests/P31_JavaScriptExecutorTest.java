@@ -45,6 +45,42 @@ public class P31_JavaScriptExecutorTest extends TestBase {
 
 
 
+
+
+    }
+
+    @Test
+    public void test_OpenNewTab_withURl() throws InterruptedException{
+
+        driver.get("https://practice.cydeo.com/");
+        Thread.sleep(2000);
+
+        //get Java script executor reference
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+
+        jse.executeScript("window.open('https://google.com','_blank')");
+
+        Thread.sleep(1000);
+
+        jse.executeScript("window.open('https://cybertekschool.com','_blank')");
+
+        Thread.sleep(1000);
+
+        jse.executeScript("window.open('https://search.yahoo.com','_blank')");
+
+        Thread.sleep(3000);
+
+
+        //get all window handle and print out
+
+        //switch to each window and print the title
+
+        // if the title is now Practice, close the window
+
+
+
+
+
     }
 
 }
