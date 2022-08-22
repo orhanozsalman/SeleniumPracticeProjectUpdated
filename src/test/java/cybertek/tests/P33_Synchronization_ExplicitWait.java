@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class P33_Synchronization_ExplicitWait extends TestBase {
@@ -48,12 +49,40 @@ public class P33_Synchronization_ExplicitWait extends TestBase {
 
 
         WebDriverWait wait =  new WebDriverWait(driver,5);
-        wait.until(elementToBeClickable(inputBox));
-        wait.until(presenceOfElementLocated(By.id("message")) );
+        //  wait.until(elementToBeClickable(inputBox));
+        //  wait.until(presenceOfElementLocated(By.id("message")) );
+        //  wait.until(textToBe(By.id("message"),"It's enabled!"));
 
         inputBox.sendKeys("Hello There");
 
         Thread.sleep(3000);
+
+
+
+    }
+
+    @Test
+
+    public void test_WaitForElementVisible()throws InterruptedException{
+
+        driver.get("https://practice.cydeo.com/dynamic_loading");
+
+        driver.findElement(By.partialLinkText("Example 1")).click();
+
+        //div#start>button
+        //button[.='Start']
+        //div[@id='start']/button[.='Start']
+
+        driver.findElement(By.xpath("//button[.='Start']")).click();
+
+        //h4[.='Hello World!']
+
+        WebDriverWait wait =  new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h4[.='Hello World!']")));
+
+        driver.findElement(By.id("username")).sendKeys("Wait Successful");
+
+        Thread.sleep(4000);
 
 
 
