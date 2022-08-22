@@ -1,13 +1,12 @@
 package cybertek.tests;
 
 import cybertek.test_util.TestBase;
-import io.cucumber.java.et.Ja;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class P31_JavaScriptExecutorTest extends TestBase {
+public class P32_JavaScriptExecutorTest extends TestBase {
 
     @Test
     public void TestScrollWholeWindow() throws InterruptedException {
@@ -82,5 +81,7 @@ public class P31_JavaScriptExecutorTest extends TestBase {
 
 
     }
+
+
 
 }
