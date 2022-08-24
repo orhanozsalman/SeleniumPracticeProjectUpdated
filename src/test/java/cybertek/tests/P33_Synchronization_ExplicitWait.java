@@ -1,6 +1,7 @@
 package cybertek.tests;
 
 import cybertek.test_util.TestBase;
+import cybertek.utilities.BrowserUtil;
 import io.cucumber.java.sl.In;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -82,8 +83,8 @@ public class P33_Synchronization_ExplicitWait extends TestBase {
 
         driver.findElement(By.id("username")).sendKeys("Wait Successful");
 
-        Thread.sleep(4000);
 
+        BrowserUtil.waitFor(3);
 
 
     }
