@@ -84,7 +84,6 @@ public class P33_Synchronization_ExplicitWait extends TestBase {
         driver.findElement(By.id("username")).sendKeys("Wait Successful");
 
 
-        BrowserUtil.waitFor(3);
 
 
     }
